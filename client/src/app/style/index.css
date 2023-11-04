@@ -1,0 +1,42 @@
+@import './themes/dark.css';
+@import './themes/light.css';
+@import './ux/transitions.css';
+
+@font-face {
+  font-family: Kill The Noise;
+  src: url('/fonts/Kill-The-Noise.otf');
+}
+
+:root {
+  --navbar-height: 100px;
+  --light-gray: #999;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  min-height: 100vh;
+  font-family: 'Kill The Noise';
+}
+
+main {
+  font-size: 24px;
+}
+
+.pd-main {
+  padding: 1.5rem;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+ul {
+  list-style: none;
+}

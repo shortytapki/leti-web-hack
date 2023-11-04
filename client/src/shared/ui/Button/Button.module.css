@@ -1,0 +1,17 @@
+.Button {
+  border: none;
+}
+
+.Button:hover {
+  cursor: pointer;
+  transform: scale(1.3);
+}
+
+.Button:active {
+  transform: scale(1.1);
+}
+
+.primary {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+}

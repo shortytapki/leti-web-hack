@@ -1,16 +1,15 @@
 import { defineConfig } from 'vite';
+import svgr from 'vite-plugin-svgr';
 import react from '@vitejs/plugin-react-swc';
 import { fileURLToPath, URL } from 'url';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), svgr({ include: '**/*.svg' })],
   resolve: {
     alias: [
       {
         find: '@app',
-        replacement: fileURLToPath(
-          new URL('./src/app/App.tsx', import.meta.url),
-        ),
+        replacement: fileURLToPath(new URL('./src/app/', import.meta.url)),
       },
       {
         find: '@pages',
@@ -18,7 +17,7 @@ export default defineConfig({
       },
       {
         find: '@widgets',
-        replacement: fileURLToPath(new URL('./src/widgets', import.meta.url)),
+        replacement: fileURLToPath(new URL('./src/widgets/', import.meta.url)),
       },
       {
         find: '@features',

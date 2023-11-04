@@ -1,0 +1,11 @@
+.light {
+  --bg-color: #fff;
+  --primary-color: #09202e;
+  --inverted-primary-color: #09202e;
+  --navbar-shadow-color: #999;
+}
+
+.light svg {
+  stroke: var(--primary-color);
+  fill: var(--primary-color);
+}

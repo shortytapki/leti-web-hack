@@ -1,0 +1,11 @@
+.dark {
+  --bg-color: #1d1d1d;
+  --primary-color: #2272ff;
+  --inverted-primary-color: #fff;
+  --navbar-shadow-color: #0d3e8d;
+}
+
+.dark svg {
+  stroke: var(--primary-color);
+  fill: var(--primary-color);
+}
