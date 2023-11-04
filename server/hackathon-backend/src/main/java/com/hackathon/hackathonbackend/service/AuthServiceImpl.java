@@ -49,7 +49,7 @@ public class AuthServiceImpl implements AuthServiceApi {
 
     @Override
     @Transactional
-    public LoginResponse login(LoginRequest request) {
+    public LoginResponse login(@NonNull LoginRequest request) {
         UserData user = userRepository.findByUsername(request.getUsername())
                 .orElseThrow(() -> new EntityNotFoundException("User with username " + request.getUsername() + " not found"));
 
