@@ -1,11 +1,11 @@
 package com.hackathon.hackathonbackend.controller.api;
 
-import com.hackathon.hackathonbackend.entity.Cart;
 import com.hackathon.hackathonbackend.entity.ProductData;
-import com.hackathon.hackathonbackend.service.api.ProductService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -22,13 +22,4 @@ public interface ProductApi {
 
     @GetMapping("/{id}")
     ProductData getProductById(@PathVariable Long id);
-
-    @PostMapping("/add-to-cart/{id}")
-    Cart addToCart(@PathVariable Long id, @RequestBody Cart cart);
-
-    @PostMapping("/remove-from-cart/{id}")
-    Cart removeFromCart(@PathVariable Long id, @RequestBody Cart cart);
-
-    @PostMapping("/update-quantity/{id}")
-    Cart updateQuantity(@PathVariable Long id, @RequestBody Cart cart);
 }
