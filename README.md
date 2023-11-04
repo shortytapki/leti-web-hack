@@ -10,7 +10,7 @@ docker compose up [-d]
 
 > Connection to running postgres container could be done with `docker exec -it <container_id> bash`
 
-In case of error `database "" does not exist` enter in the postgres console:
+In case of error `database "letistore" does not exist` enter in the postgres console:
 
 ```bash
 CREATE DATABASE letistore;
