@@ -15,7 +15,7 @@ import static com.hackathon.hackathonbackend.entity.dto.ProductDTO.*;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonTypeName("Product")
+@JsonTypeName("ProductDTO")
 @JsonPropertyOrder({
     TITLE_PROPERTY, PRICE_PROPERTY, QUANTITY_PROPERTY
 })
