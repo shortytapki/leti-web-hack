@@ -13,7 +13,8 @@
 }
 
 .AppLink:hover,
-.AppLink:active {
+.AppLink:active,
+.active {
   box-shadow: inset 100px 0 0 0 var(--primary-color);
   cursor: pointer;
   color: var(--bg-color);

@@ -1,6 +1,7 @@
 .light {
   --bg-color: #fff;
   --primary-color: #09202e;
+  --secondary-color: #1d3e53;
   --inverted-primary-color: #09202e;
   --navbar-shadow-color: #999;
 }

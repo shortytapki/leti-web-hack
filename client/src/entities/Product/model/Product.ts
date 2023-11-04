@@ -1,6 +1,9 @@
-export type Product = {
+export interface Category {
   id: number;
   name: string;
-  price: string;
   image: string;
-};
+}
+
+export interface Product extends Category {
+  price: number;
+}
