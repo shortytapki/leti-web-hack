@@ -1,7 +1,11 @@
+import MainPageWidget from "@widgets/MainPage/ui/MainPage.tsx";
+import Categories from "@widgets/Categories/ui/Categories.tsx";
+
 export const MainPage = () => {
   return (
-    <div className="pd-main">
-      <p>Main page</p>
-    </div>
+    <>
+        <Categories/>
+        <MainPageWidget/>
+    </>
   );
 };

@@ -1,0 +1,45 @@
+.blockPhoto{
+    width: 330px;
+    height: 515px;
+    background: red;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+.generalBlock{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.container{
+    padding: 40px 20px 20px 40px;
+}
+.content{
+    flex: 1 0 auto;
+}
+.footer {
+    flex: 0 0 auto;
+}
+
+
+
+
+.changeColor{
+    display: flex;
+    justify-content: space-between;
+    background: blue;
+    padding: 20px;
+}
+.buttonBuy{
+    background: black;
+    text-align: center;
+    padding: 20px;
+}
+.price{
+    text-align: center;
+    padding-top: 300px;
+    font-size: 50px;
+    z-index: 10;
+}
