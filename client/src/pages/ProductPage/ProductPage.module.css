@@ -1,0 +1,17 @@
+.ProductPage {
+  display: flex;
+  justify-content: center;
+}
+
+.contents {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+}
+
+.description {
+  font-size: 1rem;
+}
+
+.productIamge {
+}

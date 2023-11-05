@@ -6,13 +6,13 @@ import { AppLink } from '..';
 interface CardProps {
   title: string;
   image: string;
-  description: string;
+  subtitle: string;
   className?: string;
   linkTo?: string;
 }
 
 export const Card = (props: CardProps) => {
-  const { className, image, title, description, linkTo } = props;
+  const { className, image, title, subtitle, linkTo } = props;
   const [isLoading, setIsLoading] = useState(true);
   const toggleLoad = () => setIsLoading(false);
 
@@ -30,7 +30,7 @@ export const Card = (props: CardProps) => {
         ) : (
           <h4>{title}</h4>
         )}
-        <p className={cls.description}>{description}</p>
+        <p className={cls.subtitle}>{subtitle}</p>
       </footer>
     </div>
   );

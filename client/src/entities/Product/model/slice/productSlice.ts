@@ -6,55 +6,15 @@ import {
   Currency,
 } from '../types/product';
 import { lsController } from '@shared/lib';
+import { fetchProducts } from '../services/fetchProducts';
 
 const initialState: ProductSchema = {
-  allProducts: [
-    {
-      id: 100,
-      name: 'Товар 1',
-      image:
-        'https://images.unsplash.com/photo-1699088851470-4f0e05d4a485?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      price: 500,
-    },
-    {
-      id: 200,
-      name: 'Товар 2',
-      image:
-        'https://images.unsplash.com/photo-1699088851470-4f0e05d4a485?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      price: 500,
-    },
-    {
-      id: 300,
-      name: 'Товар 3',
-      image:
-        'https://images.unsplash.com/photo-1699088851470-4f0e05d4a485?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      price: 500,
-    },
-    {
-      id: 400,
-      name: 'Товар 4',
-      image:
-        'https://images.unsplash.com/photo-1699088851470-4f0e05d4a485?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      price: 500,
-    },
-    {
-      id: 500,
-      name: 'Товар 5',
-      image:
-        'https://images.unsplash.com/photo-1699088851470-4f0e05d4a485?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      price: 500,
-    },
-    // {
-    //   id: 600,
-    //   name: 'Товар 6',
-    //   image:
-    //     'https://images.unsplash.com/photo-1699088851470-4f0e05d4a485?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    //   price: 500,
-    // },
-  ],
+  allProducts: [],
   cartItems: lsController.getCartItems(),
   searchString: undefined,
   currency: Currency.RUB,
+  error: undefined,
+  isLoading: false,
 };
 
 const changeCartItems = (items: CartItem[], id: number, diff: number) =>
@@ -90,6 +50,24 @@ export const productSlice = createSlice({
       state.cartItems = filterItems(state.cartItems, action.payload);
     },
   },
+  extraReducers: (builder) =>
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(
+        fetchProducts.fulfilled,
+        (state, action: PayloadAction<Product[]>) => {
+          state.isLoading = false;
+          state.error = undefined;
+          state.allProducts = action.payload;
+        },
+      )
+      .addCase(fetchProducts.rejected, (state) => {
+        state.isLoading = false;
+        state.error = undefined;
+      }),
 });
 
 export const { actions: productsActions, reducer: productsReducer } =

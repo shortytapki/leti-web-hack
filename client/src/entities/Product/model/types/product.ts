@@ -3,6 +3,7 @@ export interface Product {
   name: string;
   image: string;
   price: number;
+  description: string;
 }
 
 export enum Currency {
@@ -23,6 +24,8 @@ export interface ProductSchema {
   allProducts: Product[];
   searchString: string | undefined;
   currency: Currency;
+  isLoading: boolean;
+  error: string | undefined;
 }
 
 export const categoriesList: Categories[] = [
