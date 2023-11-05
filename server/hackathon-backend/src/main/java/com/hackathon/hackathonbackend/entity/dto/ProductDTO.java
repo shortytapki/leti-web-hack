@@ -4,10 +4,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.hackathon.hackathonbackend.entity.ImageData;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.util.List;
 
 import static com.hackathon.hackathonbackend.entity.dto.ProductDTO.*;
 
@@ -17,7 +20,7 @@ import static com.hackathon.hackathonbackend.entity.dto.ProductDTO.*;
 @NoArgsConstructor
 @JsonTypeName("ProductDTO")
 @JsonPropertyOrder({
-    TITLE_PROPERTY, PRICE_PROPERTY, QUANTITY_PROPERTY
+    TITLE_PROPERTY, PRICE_PROPERTY, QUANTITY_PROPERTY, IMAGES_PROPERTY
 })
 public class ProductDTO {
 
@@ -29,6 +32,21 @@ public class ProductDTO {
 
     public static final String QUANTITY_PROPERTY = "quantity";
     private Integer quantity;
+
+    public static final String IMAGES_PROPERTY = "images";
+    private List<ImageDTO> images;
+
+    @JsonProperty(IMAGES_PROPERTY)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public List<ImageDTO> getImages() {
+        return images;
+    }
+
+    @JsonProperty(IMAGES_PROPERTY)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setImages(List<ImageDTO> images) {
+        this.images = images;
+    }
 
     @JsonProperty(TITLE_PROPERTY)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
