@@ -1,6 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchProducts, getAllProducts, getCurrency } from '@entities/Product';
+import {
+  fetchProducts,
+  getAllProducts,
+  getCurrency,
+  getError,
+  getIsLoading,
+} from '@entities/Product';
 import { Card } from '@shared/ui';
 import { classNames } from '@shared/lib';
 import { AppRoutes } from '@shared/config/RouteConfig';
@@ -9,8 +15,15 @@ import cls from './MainPage.module.css';
 export const MainPage = () => {
   const allProducts = useSelector(getAllProducts);
   const currency = useSelector(getCurrency);
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
   const dispatch = useDispatch();
+
+  console.log(isLoading);
+  console.log(error);
+
   useEffect(() => {
+    console.log('called');
     // @ts-expect-error call with no thunk arg
     void dispatch(fetchProducts());
   }, [dispatch]);

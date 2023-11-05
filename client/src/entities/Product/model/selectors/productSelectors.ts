@@ -6,3 +6,9 @@ export const getAllProducts = (state: StateSchema) =>
   state.products.allProducts;
 
 export const getCurrency = (state: StateSchema) => state.products.currency;
+
+export const getProducts = (state: StateSchema) => state.products.allProducts;
+
+export const getError = (state: StateSchema) => state.products.error;
+
+export const getIsLoading = (state: StateSchema) => state.products.isLoading;

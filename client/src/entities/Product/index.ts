@@ -9,6 +9,9 @@ export {
   getCartItems,
   getAllProducts,
   getCurrency,
+  getProducts,
+  getIsLoading,
+  getError,
 } from './model/selectors/productSelectors';
 
 export { fetchProducts } from './model/services/fetchProducts';
