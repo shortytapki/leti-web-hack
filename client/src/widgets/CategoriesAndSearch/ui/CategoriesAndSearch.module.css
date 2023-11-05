@@ -1,0 +1,21 @@
+.generalStyleForSearchAndCategories{
+    display: flex;
+    align-items: center;
+    gap: 610px;
+    padding: 20px 40px;
+    background: white;
+}
+.imgGeneralStyle{
+    width: 205.5vh;
+    height: 100vh;
+}
+.fixed{
+    position: fixed;
+    top: 0;
+}
+.btnUp{
+    position: absolute;
+    top: 730px;
+    left: 1600px;
+    background: none;
+}

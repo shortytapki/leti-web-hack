@@ -1,5 +1,5 @@
 import cls from "./Categories.module.css"
-import {listCategories} from "@widgets/Categories/types/type.ts";
+import {listCategories} from "@features/Categories/types/type.ts";
 const Categories = () => {
 
     return (
