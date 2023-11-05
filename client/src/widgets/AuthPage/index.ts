@@ -29,6 +29,10 @@ export const formItemsPass = [
                 message: 'Минимальное количество символов - 8',
                 value: 8,
             },
+            pattern: {
+                value: /^\S*$/,
+                message: 'В пароле не должно быть пробела',
+            },
         }
     },
 ]
