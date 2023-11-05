@@ -3,6 +3,8 @@ package com.hackathon.hackathonbackend.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "product")
 @Getter
@@ -25,4 +27,7 @@ public class ProductData {
 
     @Column(name = "quantity")
     private Integer quantity;
+
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private List<ImageData> images;
 }
