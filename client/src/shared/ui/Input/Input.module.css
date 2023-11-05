@@ -1,0 +1,41 @@
+.Input:focus {
+  outline-color: transparent;
+  outline-width: 0;
+}
+
+.Input::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: var(--primary-color);
+  font-size: 24px;
+  font-family: 'Unbounded';
+}
+
+.Input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: var(--primary-color);
+  opacity: 1;
+  font-family: 'Unbounded';
+}
+
+.Input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: var(--primary-color);
+  opacity: 1;
+  font-family: 'Unbounded';
+}
+
+.Input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: var(--primary-color);
+  font-family: 'Unbounded';
+}
+
+.Input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--primary-color);
+  font-family: 'Unbounded';
+}
+
+.Input::placeholder {
+  color: var(--primary-color);
+}

@@ -1,0 +1,36 @@
+.Checkout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.column,
+.checkoutContainer {
+  padding: 0 2rem;
+}
+
+.checkoutContainer {
+  height: 100%;
+  border-left: 3px solid var(--primary-color);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.items li {
+  display: flex;
+  gap: 2rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

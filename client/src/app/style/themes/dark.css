@@ -3,6 +3,9 @@
   --primary-color: #2272ff;
   --inverted-primary-color: #fff;
   --navbar-shadow-color: #0d3e8d;
+
+  --primary-color-03: rgba(36, 116, 255, 0.3);
+  --primary-color-015: rgba(36, 116, 255, 0.3);
 }
 
 .dark svg {

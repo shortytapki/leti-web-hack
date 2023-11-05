@@ -4,6 +4,11 @@
   --secondary-color: #1d3e53;
   --inverted-primary-color: #09202e;
   --navbar-shadow-color: #999;
+
+  /* --primary-color-04: rgba(10, 32, 46, 0.4); */
+  --primary-color-03: rgba(10, 32, 46, 0.3);
+  /* --primary-color-02: rgba(10, 32, 46, 0.2); */
+  --primary-color-015: rgba(10, 32, 46, 0.15);
 }
 
 .light svg {

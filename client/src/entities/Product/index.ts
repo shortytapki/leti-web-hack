@@ -1,5 +1,14 @@
-export { type Product, type CartItem } from './model/types/product';
+export {
+  type Product,
+  type CartItem,
+  Currency,
+  categoriesList,
+} from './model/types/product';
 
-export { getCartItems } from './model/selectors/productSelectors';
+export {
+  getCartItems,
+  getAllProducts,
+  getCurrency,
+} from './model/selectors/productSelectors';
 
 export { productsActions, productsReducer } from './model/slice/productSlice';

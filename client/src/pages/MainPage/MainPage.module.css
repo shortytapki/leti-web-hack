@@ -1,0 +1,14 @@
+.heading {
+  margin-bottom: 40px;
+}
+
+.slogan {
+  margin-bottom: 1.5rem;
+}
+
+.new {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}

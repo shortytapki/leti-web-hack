@@ -1,0 +1,7 @@
+.Cart {
+  max-height: 350px;
+  max-width: 250px;
+  position: absolute;
+  top: var(--navbar-height);
+  right: 30px;
+}

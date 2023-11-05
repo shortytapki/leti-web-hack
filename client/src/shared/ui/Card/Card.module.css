@@ -1,0 +1,41 @@
+.Card {
+  box-shadow:
+    var(--primary-color-03) 0px 1px 2px 0px,
+    var(--primary-color-015) 0px 2px 6px 2px;
+  overflow: hidden;
+  width: 300px;
+}
+
+.Card:hover {
+  cursor: pointer;
+}
+
+.Card img {
+  object-position: 0% -75px;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.Card img:hover {
+  transform: scale(1.2);
+  transition: transform 3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+
+.header {
+  overflow: hidden;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer {
+  font-size: 1.5rem;
+  padding: 20px;
+}
+
+.description {
+  font-size: 1rem;
+  margin-top: 0.75rem;
+}

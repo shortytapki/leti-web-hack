@@ -28,11 +28,15 @@
 
 main {
   font-size: 2rem;
-  height: calc(100vh - var(--navbar-height));
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .pd-main {
-  padding: 1.5rem 3rem;
+  padding: 3rem;
 }
 
 .centered {
