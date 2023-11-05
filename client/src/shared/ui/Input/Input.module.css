@@ -1,0 +1,27 @@
+.LinkPass{
+    max-width: 20px;
+    max-height: 20px;
+}
+.labelText{
+    font-family: "SansSerif";
+    text-align: left;
+    padding-left: 150px;
+    padding-bottom: 10px;
+}
+.generalStyle{
+    position: relative;
+}
+.linkStyle{
+    position: absolute;
+    top: 5px;
+    right: 135px;
+}
+.inputText{
+    width: 250px;
+    height: 35px;
+    padding-left: 15px;
+    color: black;
+    border-radius: 20px;
+    background: #808080;
+    cursor: pointer;
+}

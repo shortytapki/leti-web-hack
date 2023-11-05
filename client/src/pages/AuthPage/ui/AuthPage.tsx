@@ -1,11 +1,9 @@
-interface AuthPageProps {
-    className?: string;
-}
+import {AuthPages} from "@widgets/AuthPage";
 
-const AuthPage = ({className}: AuthPageProps) => {
+const AuthPage = () => {
     return (
         <div className={"pd-main"}>
-            Страница авторизации
+            <AuthPages/>
         </div>
     );
 };
