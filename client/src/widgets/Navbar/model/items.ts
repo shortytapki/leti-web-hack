@@ -9,5 +9,6 @@ export const NavbarItemsList: NavbarItem[] = [
   { path: RoutePaths.main, text: 'Главная' },
   { path: RoutePaths.about, text: 'О нас' },
   { path: RoutePaths.products, text: 'Товары' },
+  { path: RoutePaths.auth, text: 'Вход' },
   { path: RoutePaths.checkout, text: 'Корзина' },
 ];
