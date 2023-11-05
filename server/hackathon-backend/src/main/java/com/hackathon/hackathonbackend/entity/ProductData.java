@@ -30,4 +30,7 @@ public class ProductData {
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<ImageData> images;
+
+    @Column(name = "description")
+    private String description;
 }

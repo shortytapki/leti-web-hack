@@ -36,6 +36,21 @@ public class ProductDTO {
     public static final String IMAGES_PROPERTY = "images";
     private List<ImageDTO> images;
 
+    public static final String DESCRIPTION_PROPERTY = "description";
+    private String description;
+
+    @JsonProperty(DESCRIPTION_PROPERTY)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getDescription() {
+        return description;
+    }
+
+    @JsonProperty(DESCRIPTION_PROPERTY)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @JsonProperty(IMAGES_PROPERTY)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<ImageDTO> getImages() {
