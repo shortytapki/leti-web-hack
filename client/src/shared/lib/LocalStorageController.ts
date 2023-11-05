@@ -1,5 +1,5 @@
 import { Theme } from '@app/providers';
-import { type Product } from '@entities/Product';
+import { CartItem } from '@entities/Product';
 
 export enum AppLocalStorageKeys {
   THEME = 'LETI_MERCH_SHOP_THEME',
@@ -7,19 +7,31 @@ export enum AppLocalStorageKeys {
 }
 
 interface PersistentController {
-  addProduct: (product: Product) => void;
-  removeProduct: (id: number) => void;
-  removeAllProducts: () => void;
+  getCartItems: () => CartItem[];
+  addItem: (item: CartItem) => void;
+  removeItem: (id: number) => void;
+  removeAllItems: () => void;
   getTheme: () => Theme;
   setTheme: (theme: Theme) => void;
 }
 
 class LocalStorageController implements PersistentController {
   constructor() {
-    localStorage.setItem(AppLocalStorageKeys.CART_ITEMS, JSON.stringify([]));
+    if (!localStorage.getItem(AppLocalStorageKeys.CART_ITEMS)) {
+      localStorage.setItem(AppLocalStorageKeys.CART_ITEMS, JSON.stringify([]));
+    }
   }
 
-  addProduct(product: Product) {
+  getCartItems() {
+    const persistedItems = localStorage.getItem(AppLocalStorageKeys.CART_ITEMS);
+    if (persistedItems) {
+      const items: CartItem[] = JSON.parse(persistedItems);
+      return items;
+    }
+    return [];
+  }
+
+  addItem(item: CartItem) {
     const currentItemsJSONString = localStorage.getItem(
       AppLocalStorageKeys.CART_ITEMS,
     );
@@ -28,18 +40,18 @@ class LocalStorageController implements PersistentController {
     if (currentItemsJSONString) {
       localStorage.setItem(
         AppLocalStorageKeys.CART_ITEMS,
-        JSON.stringify(JSON.parse(currentItemsJSONString).concat([product])),
+        JSON.stringify(JSON.parse(currentItemsJSONString).concat([item])),
       );
     }
   }
-  removeProduct(id: number) {
+  removeItem(id: number) {
     const currentItemsJSONString = localStorage.getItem(
       AppLocalStorageKeys.CART_ITEMS,
     );
     // Та же тема с
     // non-null-assertion.
     if (currentItemsJSONString) {
-      const currentItems: Product[] = JSON.parse(currentItemsJSONString);
+      const currentItems: CartItem[] = JSON.parse(currentItemsJSONString);
 
       localStorage.setItem(
         AppLocalStorageKeys.CART_ITEMS,
@@ -48,7 +60,7 @@ class LocalStorageController implements PersistentController {
     }
   }
 
-  removeAllProducts() {
+  removeAllItems() {
     localStorage.setItem(AppLocalStorageKeys.CART_ITEMS, JSON.stringify([]));
   }
 

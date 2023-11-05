@@ -22,15 +22,17 @@
   background-color: var(--bg-color);
   color: var(--primary-color);
   min-height: 100vh;
-  font-family: 'Kill The Noise', sans-serif;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 200;
 }
 
 main {
   font-size: 2rem;
+  height: calc(100vh - var(--navbar-height));
 }
 
 .pd-main {
-  padding: 1.5rem;
+  padding: 1.5rem 3rem;
 }
 
 .centered {
@@ -39,6 +41,7 @@ main {
 
 h1 {
   font-size: 4rem;
+  font-family: 'Kill The Noise';
 }
 
 ul {

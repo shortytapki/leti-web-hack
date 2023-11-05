@@ -6,7 +6,8 @@ export interface NavbarItem {
 }
 
 export const NavbarItemsList: NavbarItem[] = [
-  { path: RoutePaths.main, text: 'Main' },
-  { path: RoutePaths.about, text: 'About us' },
-  { path: RoutePaths.products, text: 'Products' },
+  { path: RoutePaths.main, text: 'Главная' },
+  { path: RoutePaths.about, text: 'О нас' },
+  { path: RoutePaths.products, text: 'Товары' },
+  { path: RoutePaths.checkout, text: 'Корзина' },
 ];

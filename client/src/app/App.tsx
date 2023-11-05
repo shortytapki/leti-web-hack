@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className={classNames('app', {}, [theme])}>
       <Navbar />
-      <main>
+      <main className="pd-main">
         <AppRouter />
       </main>
     </div>

@@ -13,6 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   className?: string;
   theme?: ButtonTheme;
+  squared?: boolean;
 }
 
 export const Button = (props: ButtonProps) => {
@@ -21,17 +22,19 @@ export const Button = (props: ButtonProps) => {
     children,
     disabled,
     theme = ButtonTheme.OUTLINE,
+    squared,
     ...restProps
   } = props;
 
   const mods: Mods = {
     [cls[theme]]: true,
     [cls.disabled]: disabled,
+    [cls.squared]: squared,
   };
 
   return (
     <button
-      className={classNames(cls.Button, mods, [className])}
+      className={classNames(cls.Button, mods, [className, 'tr-main'])}
       disabled={disabled}
       {...restProps}
     >

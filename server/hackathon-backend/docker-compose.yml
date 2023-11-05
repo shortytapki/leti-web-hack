@@ -1,11 +1,11 @@
-version: '3.8'
+version: "3.3"
 
 services:
   store:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: 'store'
+    container_name: "store"
     restart: always
     depends_on:
       - postgres
@@ -14,13 +14,13 @@ services:
     ports:
       - "127.0.0.1:8080:8080"
   postgres:
-    image: 'postgres:16.0-alpine'
+    image: "postgres:16.0-alpine"
     environment:
-      POSTGRES_USER: 'postgres'
-      POSTGRES_PASSWORD: '1234'
-      POSTGRES_DB: 'letistore'
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "1234"
+      POSTGRES_DB: "letistore"
     ports:
-      - '5432:5432'
+      - "5432:5432"
 networks:
   default:
     driver: bridge

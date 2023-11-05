@@ -1,5 +1,6 @@
 .Button {
   border: none;
+  font-size: 1.5rem;
 }
 
 .Button:hover {
@@ -12,6 +13,24 @@
 }
 
 .primary {
-  background-color: var(--bg-color);
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
+.clear,
+.outline {
+  background-color: transparent;
+}
+
+.outline {
+  border: 2px solid var(--primary-color);
+}
+
+.squared {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

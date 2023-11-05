@@ -5,6 +5,9 @@
   margin: 0 -0.25rem;
   padding: 0.5rem 0.5rem;
   color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
 }
 
 .AppLink:link,
@@ -15,7 +18,7 @@
 .AppLink:hover,
 .AppLink:active,
 .active {
-  box-shadow: inset 100px 0 0 0 var(--primary-color);
+  box-shadow: inset 200px 0 0 0 var(--primary-color);
   cursor: pointer;
   color: var(--bg-color);
 }
