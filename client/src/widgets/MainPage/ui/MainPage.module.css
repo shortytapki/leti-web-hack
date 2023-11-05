@@ -1,7 +1,5 @@
 .blockPhoto{
     width: 330px;
-    height: 515px;
-    background: red;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -20,26 +18,23 @@
     flex: 1 0 auto;
 }
 .footer {
+    margin-top: -7px;
     flex: 0 0 auto;
 }
-
-
-
 
 .changeColor{
     display: flex;
     justify-content: space-between;
-    background: blue;
-    padding: 20px;
+    padding: 20px 20px 20px 0;
+    font-family: "SansSerif";
 }
 .buttonBuy{
-    background: black;
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    gap: 10px;
+    padding: 0 20px 0 0;
 }
-.price{
-    text-align: center;
-    padding-top: 300px;
-    font-size: 50px;
-    z-index: 10;
+.imgStyle{
+    border-radius: 5px;
+    max-width: 330px;
+    max-height: 337px;
 }
