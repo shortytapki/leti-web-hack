@@ -1,4 +1,6 @@
 import ThemeIcon from './theme.svg';
-import BeatIcon from './beat.svg';
-
-export { ThemeIcon, BeatIcon };
+import Hoodie from './Hoodie.jpg';
+import GeneralPhoto from './generalPhoto.jpg';
+export { ThemeIcon };
+export { Hoodie };
+export { GeneralPhoto };
