@@ -29,14 +29,14 @@ const products = [
     id: 2,
     title: 'Женская',
     price: 500,
-    description: "Ещё очень балдёжный товар",
+    description: "Тёплая женская кофта",
     image: `https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=1972&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`
   },
   {
     category: 3,
     id: 3,
     title: 'Унисекс',
-    description: "Ещё очень балдёжный товар фуфф кефтеме",
+    description: "Унисекс товар",
     price: 1000,
     image: `https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=1972&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`
   },
@@ -44,15 +44,15 @@ const products = [
     category: 4,
     id: 4,
     title: 'Аксессуар',
-    description: "Ещё очень балдёжный товар фуфф кефтеме",
+    description: "Красивый аксессуар",
     price: 1000,
     image: `https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=1972&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`
   },
   {
     category: 5,
     id: 5,
-    title: 'Другое',
-    description: "Ещё очень балдёжный товар фуфф кефтеме",
+    title: 'Ремувка',
+    description: "Крутая ремувка",
     price: 1000,
     image: `https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=1972&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`
   },
@@ -67,22 +67,11 @@ app.get('/api/v1/products', (req, res) => {
 });
 
 app.post('/api/v1/auth/login', (req, res) => {
-  const { username, password } = req.body;
-  const authInvoker = users.find(user => user.username === username);
-  if (!authInvoker) {
-    res.status(400);
-
-    return res.send('No user');
-  }
-  if (authInvoker.password !== password) {
-    res.status(400);
-    return res.send('Wrong password');
-  }
-  return res.json(authInvoker);
+  return res.json(users.at(0));
 });
 
 app.post('/api/v1/auth/register', (req, res) => {
-
+  return res.json(users.at(0))
 })
 app.listen(port, () => {
   console.log(`The server listening on port ${port}`)
