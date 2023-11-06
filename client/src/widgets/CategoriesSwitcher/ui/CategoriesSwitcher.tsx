@@ -6,10 +6,10 @@ import {
 } from '@entities/Product';
 import { classNames } from '@shared/lib';
 import { useDispatch, useSelector } from 'react-redux';
-import cls from './CategoriesSwitcher.module.css';
 import { CrossIcon } from '@shared/assets/icons';
 import { Button, ButtonTheme } from '@shared/ui';
 import { useCallback } from 'react';
+import cls from './CategoriesSwitcher.module.css';
 
 export const CategoriesSwitcher = () => {
   const pickedCategory = useSelector(getPickedCategory);
@@ -47,24 +47,3 @@ export const CategoriesSwitcher = () => {
     </div>
   );
 };
-{
-  /* <div className={scroll > 1 && cls.fixed}>
-  <div className={cls.generalStyleForSearchAndCategories}>
-    <SearchInput />
-    <Categories />
-  </div>
-  {scroll > 200 && (
-    <button
-      className={cls.btnUp}
-      style={{ cursor: 'pointer' }}
-      onClick={handleUpButton}
-    >
-      <img
-        style={{ width: '32px', height: '32px' }}
-        src="https://www.svgrepo.com/show/533629/arrow-square-up.svg"
-        alt=""
-      />
-    </button>
-  )}
-</div> */
-}

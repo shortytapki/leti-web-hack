@@ -1,9 +1,10 @@
 import { Product, getCartItems, productsActions } from '@entities/Product';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames, lsController } from '@shared/lib';
-import { Button, ButtonTheme } from '@shared/ui';
+import { AppLink, Button, ButtonTheme } from '@shared/ui';
 import { CrossIcon } from '@shared/assets/icons';
 import { useCallback } from 'react';
+import { AppRoutes } from '@shared/config/RouteConfig';
 import cls from './CheckoutPage.module.css';
 
 interface CheckoutPageProps {
@@ -49,7 +50,9 @@ const CheckoutPage = ({ className }: CheckoutPageProps) => {
                 <li key={item.id}>
                   <img src={item.image} alt="" height={240} />
                   <div className={cls.itemInfo}>
-                    <h4>{item.title}</h4>
+                    <AppLink to={`/${AppRoutes.PRODUCT}/${item.id}`}>
+                      {item.title}
+                    </AppLink>
                     <p className={cls.total}>
                       {item.price} ₽ X {item.amount} ={' '}
                       {item.price * item.amount} ₽

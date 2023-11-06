@@ -1,4 +1,4 @@
-import {Footer, Navbar} from '@widgets';
+import { Footer, Navbar } from '@widgets';
 import { useTheme } from './providers';
 import { classNames } from '@shared/lib';
 import AppRouter from './providers/Router/AppRouter';
@@ -11,7 +11,7 @@ const App = () => {
       <main className="pd-main">
         <AppRouter />
       </main>
-        <Footer/>
+      <Footer />
     </div>
   );
 };

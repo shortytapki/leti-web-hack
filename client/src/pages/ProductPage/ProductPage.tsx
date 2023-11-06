@@ -8,7 +8,7 @@ import {
   getCurrency,
   productsActions,
 } from '@entities/Product';
-import { lsController } from '@shared/lib';
+import { classNames, lsController } from '@shared/lib';
 import { useCallback, useEffect, useMemo } from 'react';
 import { Button, ButtonTheme } from '@shared/ui';
 import cls from './ProductPage.module.css';
@@ -49,7 +49,7 @@ const ProductPage = () => {
   });
 
   return (
-    <div className={cls.ProductPage}>
+    <div className={classNames(cls.ProductPage, {}, ['centered'])}>
       {pickedProduct && (
         <>
           <header>

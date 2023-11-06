@@ -2,54 +2,9 @@
   display: flex;
   align-items: center;
   max-width: 350px;
-  border-bottom: 2px solid;
 }
 
 .Searchbar input {
   height: 100%;
   width: 100%;
-  background-color: transparent;
-  color: var(--primary-color);
-  border: none;
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  font-family: 'Unbounded';
-}
-
-.Searchbar input:focus {
-  outline-color: transparent;
-  outline-width: 0;
-}
-
-::-webkit-input-placeholder {
-  /* WebKit, Blink, Edge */
-  color: var(--primary-color);
-  font-size: 24px;
-  font-family: 'Unbounded';
-}
-:-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  color: var(--primary-color);
-  opacity: 1;
-  font-family: 'Unbounded';
-}
-::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  color: var(--primary-color);
-  opacity: 1;
-  font-family: 'Unbounded';
-}
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: var(--primary-color);
-  font-family: 'Unbounded';
-}
-::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: var(--primary-color);
-  font-family: 'Unbounded';
-}
-
-::placeholder {
-  color: var(--primary-color);
 }

@@ -4,4 +4,8 @@ export { Card } from './Card/Card';
 
 export { AppLink } from './AppLink/AppLink';
 
-export { Input } from './Input/Input';
+export { Logo } from './Logo/Logo';
+
+import InputStyles from './Input/Input.module.css';
+
+export { InputStyles };

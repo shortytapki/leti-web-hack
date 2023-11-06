@@ -42,7 +42,8 @@ const AllProductsPage = () => {
         <CategoriesSwitcher />
         <Searchbar
           className={cls.productSearchBar}
-          onSearch={setSearchString}
+          onChange={(e) => setSearchString(e.target.value)}
+          value={searchString}
         />
         <section className={cls.products}>
           {filteredProducts.length ? (
