@@ -1,28 +1,76 @@
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { Product, getAllProducts } from '@entities/Product';
-import { classNames } from '@shared/lib';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  Product,
+  fetchProducts,
+  getAllProducts,
+  getCartItems,
+  getCurrency,
+  productsActions,
+} from '@entities/Product';
+import { lsController } from '@shared/lib';
+import { useCallback, useEffect, useMemo } from 'react';
+import { Button, ButtonTheme } from '@shared/ui';
 import cls from './ProductPage.module.css';
-import { useMemo } from 'react';
 
 const ProductPage = () => {
   const allProducts = useSelector(getAllProducts);
+  const currency = useSelector(getCurrency);
+  const cartItems = useSelector(getCartItems);
+  const dispatch = useDispatch();
   const { id } = useParams();
 
+  let productImage, productPrice, productDescription, productTitle;
+
+  const amountInCart = cartItems.find((item) => item.id === Number(id))?.amount;
   const pickedProduct = useMemo(
     () => allProducts.find((p) => p.id === Number(id)) as Product,
     [id, allProducts],
   );
-  const { name, image, price, description } = pickedProduct;
+
+  if (pickedProduct) {
+    const { title, image, price, description } = pickedProduct;
+    productImage = image;
+    productPrice = price;
+    productTitle = title;
+    productDescription = description;
+  }
+
+  const addProduct = useCallback(() => {
+    lsController.addItem(pickedProduct);
+    dispatch(productsActions.addToCart(pickedProduct));
+  }, [dispatch, pickedProduct]);
+
+  useEffect(() => {
+    if (!allProducts.length) {
+      //@ts-expect-error mismatch types
+      void dispatch(fetchProducts());
+    }
+  });
+
   return (
-    <div className={classNames(cls.ProductPage, {}, [])}>
-      <div className={cls.contents}>
-        <div>
-          <h1>{name}</h1>
-          <img src={image} height={700} />
-        </div>
-        <p className={cls.description}>{description}</p>
-      </div>
+    <div className={cls.ProductPage}>
+      {pickedProduct && (
+        <>
+          <header>
+            <h2>{productTitle}</h2>
+            <div>
+              <img src={productImage} className={cls.image} />
+            </div>
+          </header>
+          <footer>
+            <strong className={cls.price}>{productPrice + currency}</strong>
+            <p className={cls.description}>{productDescription}</p>
+            <div className={cls.controls}>
+              <Button theme={ButtonTheme.PRIMARY} squared onClick={addProduct}>
+                +
+              </Button>
+              <span>Добавить в корзину</span>
+            </div>
+            {amountInCart && <p>В корзине: {amountInCart}</p>}
+          </footer>
+        </>
+      )}
     </div>
   );
 };

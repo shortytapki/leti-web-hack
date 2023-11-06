@@ -1,17 +1,26 @@
 export interface Product {
   id: number;
-  name: string;
+  title: string;
   image: string;
   price: number;
   description: string;
+  category: CategoryId;
+}
+
+export enum CategoryId {
+  MAN = 1,
+  WOMAN,
+  UNISEX,
+  ACCESORIES,
+  OTHER,
 }
 
 export enum Currency {
   RUB = '₽',
 }
 
-export interface Categories {
-  id: number;
+export interface Category {
+  id: CategoryId;
   name: string;
 }
 
@@ -22,31 +31,31 @@ export interface CartItem extends Product {
 export interface ProductSchema {
   cartItems: CartItem[];
   allProducts: Product[];
-  searchString: string | undefined;
   currency: Currency;
   isLoading: boolean;
   error: string | undefined;
+  pickedCategory: CategoryId | undefined;
 }
 
-export const categoriesList: Categories[] = [
+export const categoriesList: Category[] = [
   {
-    id: 1,
+    id: CategoryId.MAN,
     name: 'Мужская одежда',
   },
   {
-    id: 2,
+    id: CategoryId.WOMAN,
     name: 'Женская одежда',
   },
   {
-    id: 3,
+    id: CategoryId.UNISEX,
     name: 'Унисекс',
   },
   {
-    id: 4,
+    id: CategoryId.ACCESORIES,
     name: 'Аксессуары',
   },
   {
-    id: 5,
+    id: CategoryId.OTHER,
     name: 'Другое',
   },
 ];

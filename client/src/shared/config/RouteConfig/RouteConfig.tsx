@@ -1,4 +1,11 @@
-import { AboutPage, MainPage, CheckoutPage, ProductPage, Auth } from '@pages';
+import {
+  AboutPage,
+  MainPage,
+  CheckoutPage,
+  ProductPage,
+  Auth,
+  AllProductsPage,
+} from '@pages';
 import { type RouteProps } from 'react-router-dom';
 
 export enum AppRoutes {
@@ -33,6 +40,7 @@ export const RouteConfig: Record<AppRoutes, RouteProps> = {
   },
   [AppRoutes.PRODUCTS]: {
     path: RoutePaths.products,
+    element: <AllProductsPage />,
   },
   [AppRoutes.PRODUCT]: {
     path: RoutePaths.product,

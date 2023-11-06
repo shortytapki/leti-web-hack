@@ -2,7 +2,7 @@ import { type ThunkConfig } from '@app/providers';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Product } from '../types/product';
 
-const productFetchError = 'Не удалось загрузить продукты.';
+const productFetchError = 'Не удалось загрузить товары.';
 export const fetchProducts = createAsyncThunk<
   Product[],
   void,

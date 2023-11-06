@@ -1,6 +1,6 @@
-import { getCartItems, productsActions } from '@entities/Product';
+import { Product, getCartItems, productsActions } from '@entities/Product';
 import { useDispatch, useSelector } from 'react-redux';
-import { classNames } from '@shared/lib';
+import { classNames, lsController } from '@shared/lib';
 import { Button, ButtonTheme } from '@shared/ui';
 import { CrossIcon } from '@shared/assets/icons';
 import { useCallback } from 'react';
@@ -15,17 +15,26 @@ const CheckoutPage = ({ className }: CheckoutPageProps) => {
   const dispatch = useDispatch();
 
   const addItem = useCallback(
-    (id: number) => dispatch(productsActions.addToCart(id)),
+    (product: Product) => {
+      lsController.addItem(product);
+      dispatch(productsActions.addToCart(product));
+    },
     [dispatch],
   );
 
   const removeItem = useCallback(
-    (id: number) => dispatch(productsActions.removeItem(id)),
+    (product: Product) => {
+      lsController.removeItem(product.id);
+      dispatch(productsActions.removeItem(product));
+    },
     [dispatch],
   );
 
   const clearItem = useCallback(
-    (id: number) => dispatch(productsActions.clearItem(id)),
+    (product: Product) => {
+      lsController.clearItem(product.id);
+      dispatch(productsActions.clearItem(product.id));
+    },
     [dispatch],
   );
 
@@ -36,35 +45,34 @@ const CheckoutPage = ({ className }: CheckoutPageProps) => {
         {cartItems.length ? (
           <>
             <ul className={cls.items}>
-              {cartItems.map(({ id, amount, name, price, image }) => (
-                <li key={id}>
-                  <img src={image} alt="" height={240} />
-                  <div>
-                    <h4>{name}</h4>
-                    <p>
-                      <span>
-                        {price} ₽ X {amount} = {price * amount} ₽
-                      </span>
+              {cartItems.map((item) => (
+                <li key={item.id}>
+                  <img src={item.image} alt="" height={240} />
+                  <div className={cls.itemInfo}>
+                    <h4>{item.title}</h4>
+                    <p className={cls.total}>
+                      {item.price} ₽ X {item.amount} ={' '}
+                      {item.price * item.amount} ₽
                     </p>
                     <div className={cls.controls}>
                       <Button
                         theme={ButtonTheme.PRIMARY}
                         squared
-                        onClick={() => addItem(id)}
+                        onClick={() => addItem(item)}
                       >
                         +
                       </Button>
                       <Button
                         theme={ButtonTheme.PRIMARY}
                         squared
-                        onClick={() => removeItem(id)}
+                        onClick={() => removeItem(item)}
                       >
                         -
                       </Button>
                       <Button
                         theme={ButtonTheme.CLEAR}
                         squared
-                        onClick={() => clearItem(id)}
+                        onClick={() => clearItem(item)}
                       >
                         <CrossIcon />
                       </Button>

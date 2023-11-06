@@ -1,5 +1,5 @@
 import { Theme } from '@app/providers';
-import { CartItem } from '@entities/Product';
+import { CartItem, Product } from '@entities/Product';
 
 export enum AppLocalStorageKeys {
   THEME = 'LETI_MERCH_SHOP_THEME',
@@ -8,9 +8,10 @@ export enum AppLocalStorageKeys {
 
 interface PersistentController {
   getCartItems: () => CartItem[];
-  addItem: (item: CartItem) => void;
+  addItem: (product: Product) => void;
   removeItem: (id: number) => void;
   removeAllItems: () => void;
+  clearItem: (id: number) => void;
   getTheme: () => Theme;
   setTheme: (theme: Theme) => void;
 }
@@ -31,16 +32,26 @@ class LocalStorageController implements PersistentController {
     return [];
   }
 
-  addItem(item: CartItem) {
+  addItem(product: Product) {
     const currentItemsJSONString = localStorage.getItem(
       AppLocalStorageKeys.CART_ITEMS,
     );
     // Подразумевается, что они не null, но
     // non-null-assertion не делаем.
     if (currentItemsJSONString) {
+      const currentItems: CartItem[] = JSON.parse(currentItemsJSONString);
+      const editedItem = currentItems.find((item) => item.id === product.id);
+      if (!editedItem) {
+        localStorage.setItem(
+          AppLocalStorageKeys.CART_ITEMS,
+          JSON.stringify(currentItems.concat([{ ...product, amount: 1 }])),
+        );
+        return;
+      }
+      editedItem.amount += 1;
       localStorage.setItem(
         AppLocalStorageKeys.CART_ITEMS,
-        JSON.stringify(JSON.parse(currentItemsJSONString).concat([item])),
+        JSON.stringify(currentItems),
       );
     }
   }
@@ -56,6 +67,21 @@ class LocalStorageController implements PersistentController {
       localStorage.setItem(
         AppLocalStorageKeys.CART_ITEMS,
         JSON.stringify(currentItems.filter((p) => p.id !== id)),
+      );
+    }
+  }
+
+  clearItem(id: number) {
+    const currentItemsJSONString = localStorage.getItem(
+      AppLocalStorageKeys.CART_ITEMS,
+    );
+
+    if (currentItemsJSONString) {
+      const currentItems: CartItem[] = JSON.parse(currentItemsJSONString);
+      const clearedItems = currentItems.filter((item) => item.id !== id);
+      localStorage.setItem(
+        AppLocalStorageKeys.CART_ITEMS,
+        JSON.stringify(clearedItems),
       );
     }
   }

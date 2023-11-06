@@ -1,17 +1,32 @@
 .ProductPage {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
   justify-content: center;
+  margin: 0 auto;
+  gap: 20px;
 }
 
-.contents {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 3rem;
+.price {
+  font-size: 3rem;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .description {
-  font-size: 1rem;
+  font-size: 2rem;
+  margin-bottom: 3rem;
 }
 
-.productIamge {
+.controls {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: 20px;
+  margin-bottom: 1.5rem;
 }

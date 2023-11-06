@@ -3,6 +3,7 @@ export {
   type CartItem,
   Currency,
   categoriesList,
+  CategoryId,
 } from './model/types/product';
 
 export {
@@ -12,6 +13,7 @@ export {
   getProducts,
   getIsLoading,
   getError,
+  getPickedCategory,
 } from './model/selectors/productSelectors';
 
 export { fetchProducts } from './model/services/fetchProducts';
