@@ -3,7 +3,6 @@ import { AboutPageAsync } from './AboutPage/AboutPage.async';
 import { CheckoutPageAsync } from './CheckoutPage/CheckoutPage.async';
 import { ProductPageAsync } from './ProductPage/ProductPage.acync';
 import { AuthPageAsync } from "@pages/Auth/Auth.async.tsx";
-import { RegistrationPageAsync } from "@pages/Registration/Registration.async.tsx";
 
 export {
   MainPage,
@@ -11,5 +10,4 @@ export {
   CheckoutPageAsync as CheckoutPage,
   ProductPageAsync as ProductPage,
   AuthPageAsync as Auth,
-  RegistrationPageAsync as Reg,
 };

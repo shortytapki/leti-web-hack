@@ -61,3 +61,11 @@
     bottom: -80px;
     left: -90px;
 }
+.imgStyle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 55px;
+    max-height: 55px;
+    cursor: pointer;
+}
