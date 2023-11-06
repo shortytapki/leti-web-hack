@@ -13,6 +13,7 @@ services:
       - default
     ports:
       - "127.0.0.1:8080:8080"
+
   postgres:
     image: "postgres:16.0-alpine"
     environment:
@@ -21,6 +22,22 @@ services:
       POSTGRES_DB: "letistore"
     ports:
       - "5432:5432"
+
+  liquibase:
+    image: 'liquibase/liquibase:4.24-alpine'
+    depends_on:
+      - postgres
+    restart: 'on-failure:3'
+
+    environment:
+      LIQUIBASE_COMMAND_USERNAME: 'postgres'
+      LIQUIBASE_COMMAND_PASSWORD: '1234'
+      LIQUIBASE_COMMAND_URL: 'jdbc:postgresql://postgres:5432/letistore'
+    volumes:
+      - './liquibase/changelog:/liquibase/changelog'
+      - './liquibase/config:/liquibase/config'
+    command: '--defaults-file=/liquibase/config/liquibase.properties update'
+
 networks:
   default:
     driver: bridge

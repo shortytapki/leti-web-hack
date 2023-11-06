@@ -1,0 +1,110 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-product
+      author: gmotrich
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: title
+                  value: "Sweatshirt"
+              - column:
+                  name: price
+                  value: 2000
+              - column:
+                  name: quantity
+                  value: 10
+              - column:
+                  name: image
+                  value: "https://images.unsplash.com/photo-1607860087860-c46e865f6ab0?auto=format&fit=crop&q=80&w=1926&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              - column:
+                  name: description
+                  value: "The best man sweatshirt"
+              - column:
+                  name: category
+                  value: 1
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: title
+                  value: "Sweatshirt"
+              - column:
+                  name: price
+                  value: 2000
+              - column:
+                  name: quantity
+                  value: 10
+              - column:
+                  name: image
+                  value: "https://images.unsplash.com/photo-1565693413579-8ff3fdc1b03b?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              - column:
+                  name: description
+                  value: "The best woman sweatshirt"
+              - column:
+                  name: category
+                  value: 2
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: title
+                  value: "T-shirt"
+              - column:
+                  name: price
+                  value: 1500
+              - column:
+                  name: quantity
+                  value: 10
+              - column:
+                  name: image
+                  value: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=2080&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              - column:
+                  name: description
+                  value: "The best T-shirt"
+              - column:
+                  name: category
+                  value: 3
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: title
+                  value: "Socks"
+              - column:
+                  name: price
+                  value: 500
+              - column:
+                  name: quantity
+                  value: 10
+              - column:
+                  name: image
+                  value: "https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&q=80&w=2127&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              - column:
+                  name: description
+                  value: "The best socks"
+              - column:
+                  name: category
+                  value: 3
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: title
+                  value: "Bracelet"
+              - column:
+                  name: price
+                  value: 200
+              - column:
+                  name: quantity
+                  value: 10
+              - column:
+                  name: image
+                  value: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&q=80&w=1935&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              - column:
+                  name: description
+                  value: "The best bracelet"
+              - column:
+                  name: category
+                  value: 5
