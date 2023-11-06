@@ -4,6 +4,7 @@ import {
   type Product,
   CartItem,
   Currency,
+  CategoryId,
 } from '../types/product';
 import { lsController } from '@shared/lib';
 import { fetchProducts } from '../services/fetchProducts';
@@ -11,16 +12,19 @@ import { fetchProducts } from '../services/fetchProducts';
 const initialState: ProductSchema = {
   allProducts: [],
   cartItems: lsController.getCartItems(),
-  searchString: undefined,
   currency: Currency.RUB,
   error: undefined,
   isLoading: false,
+  pickedCategory: undefined,
 };
 
-const changeCartItems = (items: CartItem[], id: number, diff: number) =>
-  items.map((item) =>
-    item.id === id ? { ...item, amount: item.amount + diff } : item,
+const changeCartItems = (items: CartItem[], product: Product, diff: number) => {
+  if (!items.find((item) => item.id === product.id))
+    return items.concat([{ ...product, amount: 1 }]);
+  return items.map((item) =>
+    item.id === product.id ? { ...item, amount: item.amount + diff } : item,
   );
+};
 
 const filterItems = (items: CartItem[], id: number) =>
   items.filter((item) => item.id !== id);
@@ -32,14 +36,13 @@ export const productSlice = createSlice({
     setAllProducts: (state, action: PayloadAction<Product[]>) => {
       state.allProducts = action.payload;
     },
-    addToCart: (state, action: PayloadAction<number>) => {
+    addToCart: (state, action: PayloadAction<Product>) => {
       state.cartItems = changeCartItems(state.cartItems, action.payload, 1);
     },
-    removeItem: (state, action: PayloadAction<number>) => {
+    removeItem: (state, action: PayloadAction<Product>) => {
       const targetItem = state.cartItems.find(
-        (item) => item.id === action.payload,
+        (item) => item.id === action.payload.id,
       ) as CartItem;
-
       if (targetItem.amount - 1 === 0) {
         state.cartItems = filterItems(state.cartItems, targetItem.id);
         return;
@@ -48,6 +51,12 @@ export const productSlice = createSlice({
     },
     clearItem: (state, action: PayloadAction<number>) => {
       state.cartItems = filterItems(state.cartItems, action.payload);
+    },
+    setPickedCategory: (
+      state,
+      action: PayloadAction<CategoryId | undefined>,
+    ) => {
+      state.pickedCategory = action.payload;
     },
   },
   extraReducers: (builder) =>
@@ -64,9 +73,9 @@ export const productSlice = createSlice({
           state.allProducts = action.payload;
         },
       )
-      .addCase(fetchProducts.rejected, (state) => {
+      .addCase(fetchProducts.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = undefined;
+        state.error = action.payload;
       }),
 });
 

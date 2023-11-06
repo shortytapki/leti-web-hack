@@ -1,0 +1,19 @@
+.CategoriesSwitcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.categoryChoice {
+  color: var(--primary-color);
+  padding: 10px 0;
+}
+
+.categoryChoice:hover,
+.picked {
+  box-shadow: inset 400px 0 0 0 var(--primary-color);
+  cursor: pointer;
+  color: var(--bg-color);
+}

@@ -29,8 +29,28 @@
   gap: 2rem;
 }
 
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.total {
+  font-size: 2rem;
+}
+
 .controls {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+@media (max-width: 680px) {
+  .items li {
+    flex-direction: column;
+  }
+
+  .total {
+    font-size: 1.5rem;
+  }
 }

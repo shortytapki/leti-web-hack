@@ -23,3 +23,9 @@
   cursor: pointer;
   color: var(--bg-color);
 }
+
+@media (max-width: 1200px) {
+  .AppLink {
+    font-size: 1rem;
+  }
+}

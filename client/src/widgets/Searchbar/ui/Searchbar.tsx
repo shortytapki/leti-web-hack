@@ -5,13 +5,14 @@ import { classNames } from '@shared/lib';
 
 interface SearchbarProps {
   className?: string;
+  onSearch: (value: string) => void;
 }
 
-export const Searchbar = ({ className }: SearchbarProps) => {
+export const Searchbar = ({ className, onSearch }: SearchbarProps) => {
   return (
     <div className={classNames(cls.Searchbar, {}, [className])}>
       <SearchIcon />
-      <Input placeholder="Поиск по товарам" />
+      <Input placeholder="Поиск по товарам" onChange={onSearch} />
     </div>
   );
 };

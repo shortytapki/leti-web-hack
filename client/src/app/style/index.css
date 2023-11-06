@@ -24,6 +24,7 @@
   min-height: 100vh;
   font-family: 'Unbounded', sans-serif;
   font-weight: 200;
+  min-width: 480px;
 }
 
 main {
@@ -45,4 +46,10 @@ main {
 
 ul {
   list-style: none;
+}
+
+@media (max-width: 690) {
+  h2 {
+    font-size: 1.5rem;
+  }
 }

@@ -34,6 +34,21 @@ public class ProductDTO {
     public static final String DESCRIPTION_PROPERTY = "description";
     private String description;
 
+    public static final String CATEGORY_PROPERTY = "category";
+    private Integer category;
+
+    @JsonProperty(CATEGORY_PROPERTY)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public Integer getCategory() {
+        return category;
+    }
+
+    @JsonProperty(CATEGORY_PROPERTY)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setCategory(Integer category) {
+        this.category = category;
+    }
+
     @JsonProperty(DESCRIPTION_PROPERTY)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getDescription() {

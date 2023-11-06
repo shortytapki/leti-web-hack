@@ -19,11 +19,7 @@ export const MainPage = () => {
   const error = useSelector(getError);
   const dispatch = useDispatch();
 
-  console.log(isLoading);
-  console.log(error);
-
   useEffect(() => {
-    console.log('called');
     // @ts-expect-error call with no thunk arg
     void dispatch(fetchProducts());
   }, [dispatch]);
@@ -37,17 +33,21 @@ export const MainPage = () => {
         одеждой и аксессуарами.
       </p>
       <p className={classNames(cls.slogan, {}, ['bold'])}>Новинки:</p>
-      <div className={cls.new}>
-        {allProducts.map(({ name, id, image, price }) => (
-          <Card
-            key={id}
-            title={name}
-            image={image}
-            subtitle={price + currency}
-            linkTo={`${AppRoutes.PRODUCT}/${id}`}
-          />
-        ))}
-      </div>
+      {isLoading
+        ? 'Загрузка...'
+        : error || (
+            <div className={cls.new}>
+              {allProducts.slice(0, 5).map(({ title, id, image, price }) => (
+                <Card
+                  key={id}
+                  title={title}
+                  image={image}
+                  subtitle={price + currency}
+                  linkTo={`${AppRoutes.PRODUCT}/${id}`}
+                />
+              ))}
+            </div>
+          )}
     </>
   );
 };

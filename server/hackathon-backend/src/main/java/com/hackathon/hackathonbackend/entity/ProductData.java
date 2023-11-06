@@ -31,4 +31,7 @@ public class ProductData {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "category")
+    private Integer category;
 }

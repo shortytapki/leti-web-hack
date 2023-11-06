@@ -10,8 +10,18 @@ docker compose up [-d]
 
 > Connection to running postgres container could be done with `docker exec -it <container_id> bash`
 
-In case of error `database "letistore" does not exist` enter in the postgres console:
+Watch logs:
 
 ```bash
-CREATE DATABASE letistore;
+docker compose logs --follow [service]
 ```
+
+Stop everything:
+
+```bash
+docker compose down
+```
+
+Check:
+
+* Swagger: [`http://localhost:8080/swagger-ui/index.html`](http://localhost:8097/swagger-ui/index.html)

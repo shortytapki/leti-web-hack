@@ -2,6 +2,7 @@ package com.hackathon.hackathonbackend.config;
 
 import com.hackathon.hackathonbackend.security.sevice.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
