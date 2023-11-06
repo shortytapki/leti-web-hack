@@ -46,7 +46,7 @@ const ProductPage = () => {
       //@ts-expect-error mismatch types
       void dispatch(fetchProducts());
     }
-  });
+  }, [dispatch]);
 
   return (
     <div className={classNames(cls.ProductPage, {}, ['centered'])}>
