@@ -19,7 +19,7 @@
 .AppLink:hover,
 .AppLink:active,
 .active {
-  box-shadow: inset 300px 0 0 0 var(--primary-color);
+  box-shadow: inset 500px 0 0 0 var(--primary-color);
   cursor: pointer;
   color: var(--bg-color);
 }
