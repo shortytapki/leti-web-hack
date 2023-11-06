@@ -1,0 +1,24 @@
+.generalAboutPage{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.textAbout{
+    max-width: 800px;
+    margin: 50px auto;
+}
+.imgAboutPage{
+    max-height: 500px;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+@media (max-width: 480px) {
+    .generalAboutPage{
+        display: block;
+        text-align: center;
+    }
+    .textAbout{
+        text-align: start;
+    }
+}

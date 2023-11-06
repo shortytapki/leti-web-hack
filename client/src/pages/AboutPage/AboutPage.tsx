@@ -1,15 +1,11 @@
-import { classNames } from '@shared/lib';
+import {AboutPages} from "@widgets";
 
 const AboutPage = () => {
-  return (
-    <div>
-      <h2>50 Герц - магазин фирменной продукции СПбГЭТУ ЛЭТИ.</h2>
-      <p>
-        Обозначь наличие заряда в своём образе студента вместе с фирменной
-        одеждой и аксессуарами.
-      </p>
-    </div>
-  );
+    return (
+        <div>
+            <AboutPages/>
+        </div>
+    );
 };
 
 export default AboutPage;
