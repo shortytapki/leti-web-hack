@@ -7,3 +7,5 @@ export { Searchbar } from './Searchbar/ui/Searchbar';
 export { Authe } from './Auth/ui/Auth';
 
 export { CategoriesSwitcher } from './CategoriesSwitcher/ui/CategoriesSwitcher';
+
+export { Footer } from './Footer/ui/Footer';
