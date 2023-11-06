@@ -10,7 +10,7 @@ export const fetchProducts = createAsyncThunk<
 >('products/fetchProducts', async (_, thunkAPI) => {
   const { extra, rejectWithValue } = thunkAPI;
   try {
-    const response = await extra.api.get<Product[]>(`/products`);
+    const response = await extra.api.get<Product[]>(`/products/`);
     return response.data;
   } catch (e) {
     return rejectWithValue(productFetchError);
