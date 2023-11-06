@@ -3,6 +3,7 @@
     max-height: 20px;
 }
 .labelText{
+    color: white;
     font-family: "SansSerif";
     font-size: 25px;
     text-align: left;
@@ -28,6 +29,7 @@
 }
 .inputText::placeholder{
     font-size: 14px;
+    color: white;
 }
 .error{
     font-size: 18px;

@@ -6,7 +6,7 @@ export const formItemsPass = [
         placeholder: "Введите ваш логин",
         name: "login",
         type: "text",
-        label:"Login",
+        label:"Логин",
         options: {
             pattern: {
                 value: /^\S*$/,
@@ -20,7 +20,7 @@ export const formItemsPass = [
         placeholder: "Введите пароль",
         name: "password",
         type: "password",
-        label:"Password",
+        label:"Пароль",
         options: {
             required: "Обязательное поле",
             minLength: {

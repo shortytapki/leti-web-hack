@@ -1,4 +1,4 @@
-import { AboutPage, MainPage, CheckoutPage, ProductPage, Auth } from '@pages';
+import { AboutPage, MainPage, CheckoutPage, ProductPage, Auth, Reg } from '@pages';
 import { type RouteProps } from 'react-router-dom';
 
 export enum AppRoutes {
@@ -8,6 +8,7 @@ export enum AppRoutes {
   PRODUCT = 'product',
   CHECKOUT = 'checkout',
   AUTH = 'auth',
+  REG = 'registration',
   // не забываем not_found
   NOT_FOUND = 'not_found',
 }
@@ -19,6 +20,7 @@ export const RoutePaths: Record<AppRoutes, string> = {
   [AppRoutes.PRODUCT]: '/product/:id', // + ID
   [AppRoutes.CHECKOUT]: '/checkout',
   [AppRoutes.AUTH]: '/auth',
+  [AppRoutes.REG]: '/registration',
   [AppRoutes.NOT_FOUND]: '*',
 };
 
@@ -45,6 +47,10 @@ export const RouteConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.AUTH]: {
     path: RoutePaths.auth,
     element: <Auth />,
+  },
+  [AppRoutes.REG]: {
+    path: RoutePaths.registration,
+    element: <Reg />,
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutePaths.not_found,

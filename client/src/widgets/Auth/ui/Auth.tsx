@@ -3,6 +3,7 @@ import cls from "./Auth.module.css"
 import {formItemsPass} from "@widgets/Auth";
 import InputLogin from "@shared/ui/InputLogin/InputLogin.tsx";
 import ButtonLogin from "@shared/ui/ButtonLogin/ButtonLogin.tsx";
+import {BackArrow, WelcomeText} from "@shared/ui";
 
 type Inputs = {
     login: string
@@ -22,12 +23,8 @@ export const Authe = () => {
     return (
         <form className={cls.GeneralClass} onSubmit={handleSubmit(onSubmit)}>
             <div>
-                <h3 className={cls.textMerch}>
-                    M E R C H K I L L A
-                </h3>
-                <h4 className={cls.subText}>
-                    welcome
-                </h4>
+                <BackArrow/>
+                <WelcomeText/>
                 {
                     formItemsPass.map(item => (
                         <div key={item.id}>
@@ -43,18 +40,13 @@ export const Authe = () => {
                         </div>
                     ))
                 }
-                <div className={cls.authBtn}>
-                    <ButtonLogin path="/">
-                        Забыли пароль?
-                    </ButtonLogin>
-                </div>
                 <div className={cls.paddingStyle}>
                     <button className={cls.btnStyle}>
-                        Отправить
+                        Войти
                     </button>
                 </div>
                 <div className={cls.regBtn}>
-                    <ButtonLogin path="/">
+                    <ButtonLogin path="/registration">
                         Зарегистрироваться
                     </ButtonLogin>
                 </div>
