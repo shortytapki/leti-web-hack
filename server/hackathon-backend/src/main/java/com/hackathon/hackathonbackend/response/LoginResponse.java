@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
-import static com.hackathon.hackathonbackend.response.LoginResponse.TOKEN_PROPERTY;
+import static com.hackathon.hackathonbackend.response.LoginResponse.*;
 
 
 @ToString
@@ -17,12 +17,27 @@ import static com.hackathon.hackathonbackend.response.LoginResponse.TOKEN_PROPER
 @NoArgsConstructor
 @JsonTypeName("LoginResponse")
 @JsonPropertyOrder({
-    TOKEN_PROPERTY
+    TOKEN_PROPERTY, USERNAME_PROPERTY
 })
 public class LoginResponse {
 
     public static final String TOKEN_PROPERTY = "token";
     private String token;
+
+    public static final String USERNAME_PROPERTY = "username";
+    private String username;
+
+    @JsonProperty(USERNAME_PROPERTY)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getUsername() {
+        return username;
+    }
+
+    @JsonProperty(USERNAME_PROPERTY)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     @JsonProperty(TOKEN_PROPERTY)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)

@@ -64,6 +64,7 @@ public class AuthServiceImpl implements AuthServiceApi {
 
         return LoginResponse.builder()
                 .token(jwtToken)
+                .username(user.getUsername())
                 .build();
     }
 }
