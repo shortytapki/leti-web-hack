@@ -26,7 +26,7 @@ export const RegisterForm = () => {
 
   const { password, passwordMatch } = getValues();
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="centered">
       <input
         placeholder="Почта"
         className={InputStyles.Input}

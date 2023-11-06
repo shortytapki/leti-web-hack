@@ -3,9 +3,12 @@ import { Button, ButtonTheme } from '@shared/ui';
 import { useState } from 'react';
 import cls from './AuthPage.module.css';
 import { classNames } from '@shared/lib';
+import { useSelector } from 'react-redux';
+import { getError } from '@entities/User';
 
 const AuthPage = () => {
   const [isRegistered, setIsRegistered] = useState(true);
+  const error = useSelector(getError);
   return (
     <div>
       {isRegistered ? (
@@ -33,6 +36,7 @@ const AuthPage = () => {
           </Button>
         </>
       )}
+      {error && <p>{error}</p>}
     </div>
   );
 };

@@ -12,7 +12,11 @@ const initialState: UserSchema = {
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      state.authData = undefined;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(login.pending, (state) => {

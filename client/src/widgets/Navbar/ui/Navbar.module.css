@@ -42,12 +42,23 @@
   display: flex;
 }
 
-@media (max-width: 820px) {
+.user {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 910px) {
   .menuBtn {
     display: block;
   }
 
   .links {
     display: none;
+  }
+  .authBtn {
+    font-size: 1rem;
+  }
+
+  .controls {
+    gap: 1rem;
   }
 }

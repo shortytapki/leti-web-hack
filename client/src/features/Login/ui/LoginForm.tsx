@@ -17,12 +17,7 @@ export const LoginForm = () => {
     void dispatch(login(data));
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        placeholder="Почта"
-        className={InputStyles.Input}
-        {...register('email', { required: 'Обязательное поле' })}
-      />
+    <form onSubmit={handleSubmit(onSubmit)} className="centered">
       <input
         className={InputStyles.Input}
         placeholder="Имя пользователя"

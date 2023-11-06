@@ -4,6 +4,7 @@ import { CartItem, Product } from '@entities/Product';
 export enum AppLocalStorageKeys {
   THEME = 'LETI_MERCH_SHOP_THEME',
   CART_ITEMS = 'LETI_MERCH_SHOP_CART_ITEMS',
+  USER = 'LETI_SHOP_USER',
 }
 
 interface PersistentController {
@@ -14,6 +15,9 @@ interface PersistentController {
   clearItem: (id: number) => void;
   getTheme: () => Theme;
   setTheme: (theme: Theme) => void;
+  getUser: () => string | null;
+  setUser: (username: string) => void;
+  clearUser: () => void;
 }
 
 class LocalStorageController implements PersistentController {
@@ -102,6 +106,17 @@ class LocalStorageController implements PersistentController {
 
   setTheme(theme: Theme) {
     localStorage.setItem(AppLocalStorageKeys.THEME, theme);
+  }
+
+  getUser() {
+    return localStorage.getItem(AppLocalStorageKeys.USER);
+  }
+  setUser(username: string) {
+    localStorage.setItem(AppLocalStorageKeys.USER, username);
+  }
+
+  clearUser() {
+    localStorage.removeItem(AppLocalStorageKeys.USER);
   }
 }
 

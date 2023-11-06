@@ -8,6 +8,7 @@
   color: var(--primary-color);
   font-size: 1.5rem;
   gap: 1.5rem;
+  min-height: var(--navbar-height);
 }
 
 @media (max-width: 680px) {

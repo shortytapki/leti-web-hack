@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer className={cls.footer}>
       <Logo />
-      <AppLink to="/devs">О разработчиках</AppLink>
+      <AppLink to="/devs">Разработчики</AppLink>
       <p>© {new Date().getFullYear()}</p>
     </footer>
   );

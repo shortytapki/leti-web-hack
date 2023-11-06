@@ -6,6 +6,7 @@ import {
   Auth,
   AllProductsPage,
   NotFoundPage,
+  DevsPage,
 } from '@pages';
 import { type RouteProps } from 'react-router-dom';
 
@@ -59,6 +60,7 @@ export const RouteConfig: Record<AppRoutes, RouteProps> = {
   },
   [AppRoutes.DEVS]: {
     path: RoutePaths.devs,
+    element: <DevsPage />,
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutePaths.not_found,

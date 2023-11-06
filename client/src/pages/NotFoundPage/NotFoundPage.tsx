@@ -1,5 +1,6 @@
 import { AppLink } from '@shared/ui';
 import cls from './NotFoundPage.module.css';
+import { RoutePaths } from '@shared/config/RouteConfig';
 
 const NotFoundPage = () => {
   return (
@@ -7,7 +8,7 @@ const NotFoundPage = () => {
       <div>
         <h2>404</h2>
         <p>Запрашиваемая страница не найдена.</p>
-        <AppLink to={'/'}>На главную</AppLink>
+        <AppLink to={RoutePaths.main}>На главную</AppLink>
       </div>
     </div>
   );
